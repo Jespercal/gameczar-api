@@ -13,6 +13,11 @@
             "role": "Developer"
         }
     ],
+	"autoload": {
+        "psr-4": {
+            "jespercal\\gameczar\\": "lib/jespercal/gameczar/"
+        }
+    },
 	"require": {
         "php": ">=5.3.0"
     }
