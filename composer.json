@@ -13,4 +13,7 @@
             "role": "Developer"
         }
     ],
+	"require": {
+        "php": ">=5.3.0"
+    }
 }
