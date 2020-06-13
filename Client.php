@@ -6,37 +6,31 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-namespace Zyberspace\SteamWebApi;
+namespace jespercal\gameczar-api;
 
 class Client
 {
-    const BASE_URL = 'https://api.steampowered.com/';
-
-    protected $_apiKey;
+    const BASE_URL = 'https://steamspy.com/api.php';
 
     /**
      * @var \GuzzleHttp\Client
      */
     protected $_guzzleClient;
 
-    public function __construct($apiKey)
+    public function __construct()
     {
-        $this->_apiKey = $apiKey;
-
         $this->_guzzleClient = new \GuzzleHttp\Client(array(
             'base_uri' => self::BASE_URL
         ));
     }
 
-    public function call($interface, $method, $version, $httpMethod, $parameters)
+    public function call($interface, $httpMethod, $index)
     {
-        $path = implode('/', array($interface, $method, 'v' . $version));
+		$path = "https://steamspy.com/api.php?request=appdetails&appid=$index";
+		//echo "<br>Returned path: $path";
 
-        $parameters['key'] = $this->_apiKey;
-        $response = $this->_guzzleClient->request($httpMethod, $path, array(
-            'query' => $parameters
-        ));
+        $response = $this->_guzzleClient->request($httpMethod, $path, array());
 
-        return json_decode($response->getBody()->getContents());
+        return json_decode($response->getBody()->getContents(),true);
     }
 }
