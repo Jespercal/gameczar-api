@@ -1,0 +1,16 @@
+{
+    "name": "jespercal/gameczar-api",
+    "type": "library",
+    "description": "",
+    "keywords": [],
+    "homepage": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jespercal",
+            "email": "chap600@hotmail.com",
+            "homepage": "",
+            "role": "Developer"
+        }
+    ],
+}
